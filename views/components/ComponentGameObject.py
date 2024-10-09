@@ -8,8 +8,12 @@ from models.GameObject import GameObject
 from models.enums.EnumGameObjectType import EnumGameObjectType
 from views.components.base.ComponentBase import ComponentBase
 
+import os
+
+current_dir = os.path.dirname(__file__)
+
 # Load the sprite sheet containing the Battle City game objects
-battle_city_sprites = pygame.image.load('./resources/images/battle_city_sprites.png')
+battle_city_sprites = pygame.image.load(os.path.join(current_dir, '..', '..', 'resources', 'images', 'battle_city_sprites.png'))
 
 # Define the width of each sprite in the sprite sheet
 sprite_width = 32

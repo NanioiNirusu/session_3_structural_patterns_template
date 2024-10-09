@@ -100,3 +100,28 @@ class ControllerTank:
 
             # Set the tank's direction to the specified direction
             tank.direction = direction
+
+    @staticmethod
+    def update_autonomous(tank: GameObject, game: Game, delta_time: float):
+        # Check if it's time for a new action
+        tank.tank_next_move_time -= delta_time
+        if tank.tank_next_move_time <= 0:
+            # Choose a new action
+            ControllerTank.choose_new_action(tank, game)
+            # Reset the timer (you can adjust this value)
+            tank.tank_next_move_time = random.uniform(1000, 3000)  # 1-3 seconds
+
+        # Move the tank based on its current direction
+        ControllerTank.update(tank, game, delta_time)
+
+    @staticmethod
+    def choose_new_action(tank: GameObject, game: Game):
+        # Randomly choose between moving and shooting
+        if random.choice([True, False]):
+            # Choose a random direction
+            new_direction = random.choice(list(EnumGameObjectDirection))
+            ControllerTank.set_direction(tank, new_direction)
+        else:
+            # Shoot
+            ControllerTank.fire(tank, game)
+
