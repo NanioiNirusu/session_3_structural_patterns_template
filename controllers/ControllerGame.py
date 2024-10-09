@@ -5,6 +5,7 @@ from controllers.ControllerTank import ControllerTank
 from models.Game import Game
 from models.GameObject import GameObject
 from models.enums.EnumGameObjectType import EnumGameObjectType
+from models.builders.LevelBuilder import Level1Builder, Level2Builder
 
 
 class ControllerGame:
@@ -56,7 +57,11 @@ class ControllerGame:
     def new_game(self):
         # Create a new Game instance and assign it to the _game member variable
         self._game = game = Game()
+        # Randomly select a level builder from the list of available level builders
+        chosen_builder = random.choice(self.level_builders)
 
+        # Use the selected level builder to construct a level in the game instance
+        chosen_builder.build_level(self._game)
         # Randomly choose map tile types
         # Create a list of game object types with weighted probabilities
         game_object_options = [EnumGameObjectType.NotSet] * 30 + [
