@@ -72,7 +72,7 @@ class ControllerGame:
             EnumGameObjectType.Brick,
             EnumGameObjectType.Steel,
             EnumGameObjectType.Enemy,
-            EnumGameObjectType.Tank,
+            # EnumGameObjectType.Tank,
         ]
 
         # Create a prototype GameObject instance for animation settings
@@ -84,10 +84,10 @@ class ControllerGame:
         animated_game_object.animation_is_animating = True
 
         # Flag to track if the player's tank has been set
-        # player_tank = animated_game_object.clone()
-        # player_tank.position = [random.randint(0, game.map_size[0] - 1), random.randint(0, game.map_size[1] - 1)]
-        # player_tank.game_object_type = EnumGameObjectType.Tank
-        # game.game_objects.append(player_tank)
+        player_tank = animated_game_object.clone()
+        player_tank.position = [random.randint(0, game.map_size[0] - 1), random.randint(0, game.map_size[1] - 1)]
+        player_tank.game_object_type = EnumGameObjectType.Tank
+        game.game_objects.append(player_tank)
 
         # Iterate through the map grid
         for x in range(game.map_size[0]):
