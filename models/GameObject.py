@@ -14,7 +14,7 @@ class GameObject:
     position: List[float] = field(default_factory=list)
 
     # The direction the game object is facing, using the EnumGameObjectDirection enum
-    direction: EnumGameObjectDirection = EnumGameObjectDirection.Up
+    direction: EnumGameObjectDirection = EnumGameObjectDirection.NotSet
 
     # The type of the game object, using the EnumGameObjectType enum
     game_object_type: EnumGameObjectType = EnumGameObjectType.NotSet

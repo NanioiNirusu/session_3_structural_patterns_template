@@ -9,6 +9,7 @@ from views.components.ComponentTank import ComponentTank
 
 
 class FactoryGameObject:
+
     def create_component(self, game_objet: GameObject) -> ComponentGameObject:
         # Get the game object type from the game_objet parameter
         obj_type = game_objet.game_object_type
