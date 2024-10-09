@@ -17,7 +17,7 @@ class GameObject:
     direction: EnumGameObjectDirection = EnumGameObjectDirection.NotSet
 
     # The type of the game object, using the EnumGameObjectType enum
-    game_object_type: EnumGameObjectType = EnumGameObjectType.NotSet
+    game_object_type: EnumGameObjectType = EnumGameObjectType.Tank
 
     # The level of the tank (assuming this is relevant for tank objects)
     tank_level: int = 0

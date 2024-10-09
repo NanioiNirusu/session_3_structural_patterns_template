@@ -65,67 +65,67 @@ class ControllerGame:
         chosen_builder.build_level(self._game)
         # Randomly choose map tile types
         # Create a list of game object types with weighted probabilities
-
-        game_object_options = [EnumGameObjectType.NotSet] * 30 + [
-            EnumGameObjectType.Forest,
-            EnumGameObjectType.Water,
-            EnumGameObjectType.Brick,
-            EnumGameObjectType.Steel,
-            EnumGameObjectType.Enemy,
-            # EnumGameObjectType.Tank,
-        ]
-
-        # Create a prototype GameObject instance for animation settings
-        animated_game_object = GameObject()
-        animated_game_object.animation_frame_duration = random.randint(0,
-                                                                       int(animated_game_object.animation_frame_duration_max))
-        animated_game_object.animation_frame_max = 2
-        animated_game_object.animation_frame_duration_max = 500
-        animated_game_object.animation_is_animating = True
-
-        # Flag to track if the player's tank has been set
-        player_tank = animated_game_object.clone()
-        player_tank.position = [random.randint(0, game.map_size[0] - 1), random.randint(0, game.map_size[1] - 1)]
-        player_tank.game_object_type = EnumGameObjectType.Tank
-        game.game_objects.append(player_tank)
-
-        # Iterate through the map grid
-        for x in range(game.map_size[0]):
-            for y in range(game.map_size[1]):
-                # Randomly choose a game object type from the options
-                game_object_type = random.choice(game_object_options)
-
-                # If the game object type is Tank and the player's tank has not been set
-                if game_object_type in [EnumGameObjectType.Enemy, EnumGameObjectType.EnemyAdvanced]:
-                    game_object.tank_next_move_time = random.uniform(0, 2000)  # Start with a random time
-
-                # If the game object type is not NotSet
-                if game_object_type != EnumGameObjectType.NotSet:
-                    # Clone the prototype GameObject instance
-                    game_object = animated_game_object.clone()
-                    game_object.position = [x, y]
-                    game_object.game_object_type = game_object_type
-
-                    # If the game object type is not NotSet
-                    if game_object_type != EnumGameObjectType.NotSet:
-                        # Clone the prototype GameObject instance
-                        game_object = animated_game_object.clone()
-                        game_object.position = [x, y]
-                        game_object.game_object_type = game_object_type
-
-                        # If the game object type is Steel, Brick, or Forest, disable animation
-                        if game_object_type in [
-                            EnumGameObjectType.Steel, EnumGameObjectType.Brick, EnumGameObjectType.Forest
-                        ]:
-                            game_object.animation_is_animating = False
-                    # If the game object type is Steel, Brick, or Forest, disable animation
-                    if game_object_type in [
-                        EnumGameObjectType.Steel, EnumGameObjectType.Brick, EnumGameObjectType.Forest
-                    ]:
-                        game_object.animation_is_animating = False
-
-                    # Add the game object to the game's list of game objects
-                    game.game_objects.append(game_object)
+        #
+        # game_object_options = [EnumGameObjectType.NotSet] * 30 + [
+        #     EnumGameObjectType.Forest,
+        #     EnumGameObjectType.Water,
+        #     EnumGameObjectType.Brick,
+        #     EnumGameObjectType.Steel,
+        #     EnumGameObjectType.Enemy,
+        #     # EnumGameObjectType.Tank,
+        # ]
+        #
+        # # Create a prototype GameObject instance for animation settings
+        # animated_game_object = GameObject()
+        # animated_game_object.animation_frame_duration = random.randint(0,
+        #                                                                int(animated_game_object.animation_frame_duration_max))
+        # animated_game_object.animation_frame_max = 2
+        # animated_game_object.animation_frame_duration_max = 500
+        # animated_game_object.animation_is_animating = True
+        #
+        # # Flag to track if the player's tank has been set
+        # player_tank = animated_game_object.clone()
+        # player_tank.position = [random.randint(0, game.map_size[0] - 1), random.randint(0, game.map_size[1] - 1)]
+        # player_tank.game_object_type = EnumGameObjectType.Tank
+        # game.game_objects.append(player_tank)
+        #
+        # # Iterate through the map grid
+        # for x in range(game.map_size[0]):
+        #     for y in range(game.map_size[1]):
+        #         # Randomly choose a game object type from the options
+        #         game_object_type = random.choice(game_object_options)
+        #
+        #         # If the game object type is Tank and the player's tank has not been set
+        #         if game_object_type in [EnumGameObjectType.Enemy, EnumGameObjectType.EnemyAdvanced]:
+        #             game_object.tank_next_move_time = random.uniform(0, 2000)  # Start with a random time
+        #
+        #         # If the game object type is not NotSet
+        #         if game_object_type != EnumGameObjectType.NotSet:
+        #             # Clone the prototype GameObject instance
+        #             game_object = animated_game_object.clone()
+        #             game_object.position = [x, y]
+        #             game_object.game_object_type = game_object_type
+        #
+        #             # If the game object type is not NotSet
+        #             if game_object_type != EnumGameObjectType.NotSet:
+        #                 # Clone the prototype GameObject instance
+        #                 game_object = animated_game_object.clone()
+        #                 game_object.position = [x, y]
+        #                 game_object.game_object_type = game_object_type
+        #
+        #                 # If the game object type is Steel, Brick, or Forest, disable animation
+        #                 if game_object_type in [
+        #                     EnumGameObjectType.Steel, EnumGameObjectType.Brick, EnumGameObjectType.Forest
+        #                 ]:
+        #                     game_object.animation_is_animating = False
+        #             # If the game object type is Steel, Brick, or Forest, disable animation
+        #             if game_object_type in [
+        #                 EnumGameObjectType.Steel, EnumGameObjectType.Brick, EnumGameObjectType.Forest
+        #             ]:
+        #                 game_object.animation_is_animating = False
+        #
+        #             # Add the game object to the game's list of game objects
+        #             game.game_objects.append(game_object)
 
     # def update(self, delta_time: float):
         # # Get the current game instance
