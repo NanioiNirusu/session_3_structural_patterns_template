@@ -66,12 +66,12 @@ class Level1Builder(LevelBuilder):
 
                     game.game_objects.append(game_object)
 
-        # Ensure a player tank is created if it wasn't placed randomly
-        if not is_player_set:
-            player_tank = animated_game_object.clone()
-            player_tank.position = [random.randint(0, game.map_size[0] - 1), random.randint(0, game.map_size[1] - 1)]
-            player_tank.game_object_type = EnumGameObjectType.Tank
-            game.game_objects.append(player_tank)
+        # # Ensure a player tank is created if it wasn't placed randomly
+        # if not is_player_set:
+        #     player_tank = animated_game_object.clone()
+        #     player_tank.position = [random.randint(0, game.map_size[0] - 1), random.randint(0, game.map_size[1] - 1)]
+        #     player_tank.game_object_type = EnumGameObjectType.Tank
+        #     game.game_objects.append(player_tank)
 
 
 # Concrete class for building level 2 of the game
@@ -127,10 +127,10 @@ class Level2Builder(LevelBuilder):
                     game.game_objects.append(game_object)
 
         # Ensure a player tank is created if it wasn't placed randomly
-        if not is_player_set:
-            player_tank = animated_game_object.clone()
-            player_tank.position = [random.randint(0, game.map_size[0] - 1), random.randint(0, game.map_size[1] - 1)]
-            player_tank.game_object_type = EnumGameObjectType.Tank
-            game.game_objects.append(player_tank)
+        # if not is_player_set:
+        #     player_tank = animated_game_object.clone()
+        #     player_tank.position = [random.randint(0, game.map_size[0] - 1), random.randint(0, game.map_size[1] - 1)]
+        #     player_tank.game_object_type = EnumGameObjectType.Tank
+        #     game.game_objects.append(player_tank)
 
 
